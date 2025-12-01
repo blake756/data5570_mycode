@@ -120,13 +120,30 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS settings (for development)
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8081',
-    'http://127.0.0.1:8081',
-]
+# Allow all origins in development - restrict in production!
+CORS_ALLOW_ALL_ORIGINS = True
 
-# Or temporarily allow all origins (ONLY for testing)
-# CORS_ALLOW_ALL_ORIGINS = True  # Remove in production!
+# Additional CORS settings
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 # REST Framework settings
 REST_FRAMEWORK = {
